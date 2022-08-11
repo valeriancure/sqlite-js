@@ -16,7 +16,7 @@ all: js.so
 
 js.so: sqlitejs.o duktape.o
 	cc -shared -o js.so sqlitejs.o duktape.o -lm
-	@[ "`uname -s`" == "Darwin" ] && mv js.so js.dylib || :
+# @[ "`uname -s`" == "Darwin" ] && mv js.so js.dylib || :
 
 sqlitejs.o: src/sqlitejs.c
 	cc -c $(COMPILE_SWITCHES) $(SQLITE_FLAGS) -I$(DUKTAPE_LIB)/src/ src/sqlitejs.c
